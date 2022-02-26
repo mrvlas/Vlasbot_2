@@ -1,0 +1,42 @@
+body{
+    background: #0f0c29;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #24243e, #302b63, #0f0c29);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #24243e, #302b63, #0f0c29); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    
+}
+.boton{
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;    
+}
+#boton1{
+    position:absolute;
+    left: 40%;
+}
+#boton2{
+    position:absolute;
+    left: 15%;
+}
+#boton3{
+    position:absolute;
+    left: 25%;
+}
+
+.parent {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+    }
+    
+    .div1 { grid-area: 3 / 4 / 4 / 5; }
+    .div2 { grid-area: 2 / 4 / 3 / 5; }
+    .div3 { grid-area: 3 / 3 / 4 / 4; }
+    .div4 { grid-area: 3 / 5 / 4 / 6; }
+    .div5 { grid-area: 4 / 4 / 5 / 5; }

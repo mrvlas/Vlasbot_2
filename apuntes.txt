@@ -1,0 +1,18 @@
+1- Creando un entorno virtual:
+-> python3 -m venv .
+2- Para activar el entorno virtual:
+-> source bin/activate
+3- Instalar Flask:
+-> pip3 install flask
+4- Instalar RPi.GPIO:
+-> pip3 install RPi.GPIO
+
+
+Uso de Github
+- iniciar git: git init 
+- saber los archivos que se modificaron: git status 
+- para subir archivo especifico: git add nombreArchivo.py
+- subir todas las modificaciones: git add .
+- realizar el commit: git commit -m "el mensaje"
+(hasta aca todo esta en local)
+- para subir al repositorio: git push

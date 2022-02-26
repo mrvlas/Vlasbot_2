@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="utf-8" />
+        <link rel="stylesheet" href="{{url_for('static',filename='css/main.css')}}">
+        <title>Vl@sBot!</title>
+    </head>
+    <body>
+       <!-- {{ forward_message }}  -->   
+        <h1>GUI Robot </h1>
+        
+        <form action="/avanzar/" method="post">
+            <button id="boton1" name="AvanzarBtn" type="submit" class="boton">Avanzar</button>
+        </form>
+        <form action="/stop/" method="post">
+            <button id="boton2" name="RetrocederBtn" type="submit" class="boton">STOP</button>
+        </form>
+        <form action="/led/" method="post">
+            <button id="boton3" name="RetrocederBtn" type="submit" class="boton">LED</button>
+        </form>
+
+    </body>
+</html>
