@@ -33,6 +33,7 @@ class Robot():
         #gpio.output(motor_a_pin1,gpio.LOW)  
         gpio.output(pin.motor_b_pin1,gpio.HIGH)
         #gpio.output(motor_b_pin1,gpio.LOW)
+        
     def Derecha(self):
         print("Girar Derecha")
         pin.pwm_a.start(self.velocidad)

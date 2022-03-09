@@ -12,10 +12,9 @@ from camera import VideoCamera
 import threading
 import os
 
-pi_camera = VideoCamera(flip=False) # flip pi camera if upside down.
- 
+pi_camera = VideoCamera(flip=False) # voltear la cámara pi si está al revés.
 
-# Se crea el objeto
+# Se crea la App
 server = Flask("__name__")
 # Se crea la ruta por defecto
 @server.route('/')
@@ -29,7 +28,6 @@ def gen(camera):
         frame = camera.get_frame()
         yield (b'--frame\r\n'
                b'Content-Type: image/jpeg\r\n\r\n' + frame + b'\r\n\r\n')
-
 
 @server.route('/video_feed')
 def video_feed():
