@@ -1,12 +1,33 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, Response, request 
 from Vlasbot import Robot
+from camera import VideoCamera
+import threading
+import os
+
+pi_camera = VideoCamera(flip=False) # flip pi camera if upside down.
+ 
+
 # Se crea el objeto
-server=Flask("__name__")
+server = Flask("__name__")
 # Se crea la ruta por defecto
 @server.route('/')
 # Método de la ruta anterior
 def home():
     return render_template('index.html')
+
+def gen(camera):
+    #get camera frame
+    while True:
+        frame = camera.get_frame()
+        yield (b'--frame\r\n'
+               b'Content-Type: image/jpeg\r\n\r\n' + frame + b'\r\n\r\n')
+
+
+@server.route('/video_feed')
+def video_feed():
+    return Response(gen(pi_camera),
+                    mimetype='multipart/x-mixed-replace; boundary=frame')
+ 
 
 @server.route("/avanzar/", methods=['POST'])
 def avanzar():
@@ -33,7 +54,7 @@ def Encender_Led():
 if __name__=='__main__':
     
     miRobot=Robot()
-    server.run(debug=True, host='0.0.0.0')
+    server.run(debug=False, host='0.0.0.0')
     #server.run(host='192.168.1.149')
     
     
