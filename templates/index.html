@@ -28,34 +28,37 @@
     <img  class="camera-bg" style="width:80%; height:80%;" src="{{ url_for('video_feed') }}">
   </article>
   <aside class="control-direccion">Control Dirección    
+
     <form action="/avanzar/" method="post">
       <button id="btn-avanzar">
         Avanzar
       </button>
     </form>
-    
+
     <form action="/stop/" method="post">
       <button id="btn-stop">
         STOP
       </button>
     </form>
-    <br>
     
-    <form action="">
+    <form action="/derecha/" method="post">
       <button id="btn-derecha">
         Derecha
       </button>
+      </form>
 
-      <form action="">
+      <form action="/izquierda/" method="post">
         <button id="btn-izquierda">
           Izquierda
         </button>
+      </form>
 
-    <form action="">
+    <form action="/retroceder/" method="post">
       <button id="btn-retroceder">
         Retroceder
       </button>
     </form>
+
   </aside>
 
   <footer class="footer">Footer</footer>

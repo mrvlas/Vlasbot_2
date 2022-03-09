@@ -1,3 +1,11 @@
+"""
+----------------------------------------------------------    
+    Interfaz gráfica para controlar al robot Vlasbot V1
+    Creado por: Vladimir Guajardo 
+    Fecha de creación: Febrero - marzo 2022
+----------------------------------------------------------  
+"""
+
 from flask import Flask, render_template, Response, request 
 from Vlasbot import Robot
 from camera import VideoCamera
@@ -31,19 +39,33 @@ def video_feed():
 
 @server.route("/avanzar/", methods=['POST'])
 def avanzar():
-    #Moving forward code
-    #forward_message = "Moving Forward..."
     print("Moviendo primera funcion")
     miRobot.Avanzar()
-    return render_template('index.html')#, forward_message=forward_message);
+    return render_template('index.html')
+
+@server.route("/retroceder/", methods=['POST'])
+def retroceder():
+    print("retrocediendo primera funcion")
+    miRobot.Retroceder()
+    return render_template('index.html')
+
+@server.route("/derecha/", methods=['POST'])
+def derecha():
+    print("Moviendo Derecha")
+    miRobot.Derecha()
+    return render_template('index.html')
+
+@server.route("/izquierda/", methods=['POST'])
+def izquierda():
+    print("Moviendo Izquierda")
+    miRobot.Izquierda()
+    return render_template('index.html')
 
 @server.route("/stop/", methods=['POST']) # STOP
-def Retroceder():
-    #Moving forward code
-    #forward_message = "Moving Forward..."
+def stop():
     print("Stop")
     miRobot.Stop()
-    return render_template('index.html')#, forward_message=forward_message);
+    return render_template('index.html')
 
 @server.route("/led/", methods=['POST']) # Encender Led
 def Encender_Led():

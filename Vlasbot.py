@@ -4,7 +4,7 @@ import pinesGPIO as pin
 
 class Robot():
 
-    velocidad=80
+    velocidad=50
 
     def __init__(self):
         print("Robot Creado!!!")    
@@ -26,11 +26,27 @@ class Robot():
         gpio.output(pin.motor_b_pin1,gpio.LOW)
     
     def Retroceder(self):
-        print("RETROCEDIENDO")
+        print("Retroceder")
+        pin.pwm_b.start(self.velocidad)
+        pin.pwm_a.start(self.velocidad)
+        gpio.output(pin.motor_a_pin1,gpio.HIGH)
+        #gpio.output(motor_a_pin1,gpio.LOW)  
+        gpio.output(pin.motor_b_pin1,gpio.HIGH)
+        #gpio.output(motor_b_pin1,gpio.LOW)
     def Derecha(self):
-        pass
+        print("Girar Derecha")
+        pin.pwm_a.start(self.velocidad)
+        pin.pwm_b.start(self.velocidad)
+        gpio.output(pin.motor_a_pin1,gpio.HIGH)
+        gpio.output(pin.motor_b_pin2,gpio.HIGH)
+
     def Izquierda(self):
-        pass
+        print("Girar izquierda")
+        pin.pwm_b.start(self.velocidad) 
+        pin.pwm_a.start(self.velocidad)
+        gpio.output(pin.motor_b_pin1,gpio.HIGH)
+        gpio.output(pin.motor_a_pin2,gpio.HIGH)
+        
     def EncenderLed(self):
         gpio.output(5,gpio.HIGH)
         gpio.output(6,gpio.HIGH)
