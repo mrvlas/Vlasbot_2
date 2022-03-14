@@ -28,3 +28,5 @@ pwm_b=gpio.PWM(motor_b_en, 1000)
 gpio.setup(5,gpio.OUT)
 gpio.setup(6,gpio.OUT)
 gpio.setup(13,gpio.OUT)
+# Configuración Ultrasonico
+

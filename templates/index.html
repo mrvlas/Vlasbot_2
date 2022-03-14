@@ -26,6 +26,11 @@
 
   <article class="camara">cámara
     <img  class="camera-bg" style="width:80%; height:80%;" src="{{ url_for('video_feed') }}">
+    <form action="/led/" method="post">
+      <button id="btn-led">
+        Encender LED 
+      </button>
+    </form>
   </article>
   <aside class="control-direccion">Control Dirección    
 

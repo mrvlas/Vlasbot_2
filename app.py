@@ -33,7 +33,12 @@ def gen(camera):
 def video_feed():
     return Response(gen(pi_camera),
                     mimetype='multipart/x-mixed-replace; boundary=frame')
- 
+
+@server.route('/led/')
+def led():
+    print("Encendiendo el LED")
+    miRobot.EncenderLed()
+    return render_template('index.html')
 
 @server.route("/avanzar/", methods=['POST'])
 def avanzar():
