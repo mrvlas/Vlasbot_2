@@ -4,7 +4,7 @@ import pinesGPIO as pin
 
 class Robot():
 
-    velocidad=50
+    velocidad=100
 
     def __init__(self):
         print("Robot Creado!!!")    

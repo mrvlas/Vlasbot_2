@@ -74,12 +74,13 @@ def stop():
 def Encender_Led():
     miRobot.EncenderLed()
     return render_template('index.html')
-    
+
+
 # Principal 
 if __name__=='__main__':
     
     miRobot=Robot()
-    server.run(debug=False, host='0.0.0.0')
+    server.run(debug=False, host='192.168.1.149')
     #server.run(host='192.168.1.149')
     
     
