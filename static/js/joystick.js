@@ -1,30 +1,43 @@
-var eventoControlado = false;
-window.onload = function() { 
-document.onkeypress = mostrarInformacionCaracter;
-document.onkeyup = mostrarInformacionTecla; 
-}
+document.addEventListener('keydown', (event) => {
+    var keyValue = event.key;
+    var codeValue = event.code;
 
-function mostrarInformacionCaracter(evObject) {
-                var msg = ''; var elCaracter = String.fromCharCode(evObject.which);
-                if (evObject.which!=0 && evObject.which!=13) {
-                msg = 'Tecla pulsada: ' + elCaracter;
-                if (elCaracter=='w'){
-                  document.form_avanzar.submit()
-                }
-                control.innerHTML += msg + '-----------------------------<br/>'; }
-                else { msg = 'Pulsada tecla especial';
-                control.innerHTML += msg + '-----------------------------<br/>';}
-                eventoControlado=true;
-}
-function mostrarInformacionTecla(evObject) {
+    if (keyValue=='w'){
+        document.form_avanzar.submit()
+    }
+    if (keyValue=='d'){
+        document.form_derecha.submit()
+    }
+    if (keyValue=='a'){
+        document.form_izquierda.submit()
+    }
+    if (keyValue=='s'){
+        document.form_retroceder.submit()
+    }
+     //console.log("keydown event, keyValue: " + keyValue);
+    //console.log("keydown event, codeValue: " + codeValue);
+    
+  
+  }, false);
+  
+  document.addEventListener('keyup', (event) => {
+    var keyValue = event.key;
+    var codeValue = event.code;
 
-                if (elCaracter=='w'){
-                    document.form_stop.submit()
-                }    
-                var msg = ''; var teclaPulsada = evObject.keyCode;
-                if (teclaPulsada == 20) { msg = 'Pulsado caps lock (act/des mayúsculas)';}
-                else if (teclaPulsada == 16) { msg = 'Pulsado shift';}
-                else if (eventoControlado == false) { msg = 'Pulsada tecla especial';}
-                if (msg) {control.innerHTML += msg + '-----------------------------<br/>';}
-                eventoControlado = false;
-}
+    if(keyValue=='w'){
+        document.form_stop.submit();
+    }
+    if (keyValue=='d'){
+        document.form_stop.submit()
+    }
+    if (keyValue=='a'){
+        document.form_stop.submit()
+    }
+    if (keyValue=='s'){
+        document.form_stop.submit()
+    }
+    //console.log("keyup event, keyValue: " + keyValue);
+    //console.log("keyup event, codeValue: " + codeValue);
+    
+
+  }, false);
