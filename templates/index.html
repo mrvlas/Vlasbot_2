@@ -7,24 +7,58 @@
   <title>:: VlasBot ::</title>
   <link rel="stylesheet" href="{{url_for('static',filename='css/main.css')}}">
   <script src="{{url_for('static', filename = 'js/joystick.js')}}"></script> 
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 </head>
 <body class="grid-container">
-  <header class="header" id="header">:: GUI RobotLAB ::</header>
-  
-  <nav class="navbar">
 
+<script type="text/javascript">
+    function avanzar(){
+      $.ajax({
+        type:'post',
+        url:'/avanzar/'
+    });
+    return false;
+}
+function stop(){  
+    $.ajax({
+      type:'post',
+      url:'/stop'
+  });
+  return false;
+}
+function derecha(){  
+    $.ajax({
+      type:'post',
+      url:'/derecha'
+  });
+  return false;
+}
+function izquierda(){  
+    $.ajax({
+      type:'post',
+      url:'/izquierda'
+  });
+  return false;
+}
+function retroceder(){  
+    $.ajax({
+      type:'post',
+      url:'/retroceder'
+  });
+  return false;
+}
+</script> 
+  <header class="header" id="header">:: GUI RobotLAB ::</header>
+  <nav class="navbar">
     <div class="ui-widget">
       <h1 class="ui-value">15</h1>
       <span class="ui-label">Ultrasonico</span>
     </div>
-
     <div class="ui-widget">
       <h1 class="ui-value">24</h1>
       <span class="ui-label">Temperatura</span>
     </div>
-
   </nav>
-
   <article class="camara">cámara
     <img  class="camera-bg" style="width:80%; height:80%;" src="{{ url_for('video_feed') }}"> 
     <form action="/led/" method="post" name="form_led">
@@ -33,40 +67,31 @@
       </button>
     </form>
   </article>
-  <aside class="control-direccion">Control Dirección    
-
-    <form action="/avanzar/" method="post" name="form_avanzar">
-      <button id="btn-avanzar">
-        Avanzar
-      </button>
+  <aside class="control-direccion">Control Dirección
+    
+    <form method="post" id="form-avanzar" onsubmit="return avanzar();">
+      <button id="btn-avanzar">avanzar</button>
     </form>
 
-    <form action="/stop/" method="post" name="form_stop">
-      <button id="btn-stop">
-        STOP
-      </button>
+    <form method="post" id="form-stop" onsubmit="return stop();" >
+      <button name="Stop" id="btn-stop">STOP</button>
     </form>
     
-    <form action="/derecha/" method="post" name="form_derecha">
-      <button id="btn-derecha">
-        Derecha
-      </button>
+    <form method="post" id="form_derecha" onsubmit="return derecha();">
+      <button id="btn-derecha">Derecha</button>
       </form>
 
-      <form action="/izquierda/" method="post" name="form_izquierda">
-        <button id="btn-izquierda">
-          Izquierda
-        </button>
+      <form method="post" id="form_izquierda" onsubmit="return izquierda();">
+        <button id="btn-izquierda">Izquierda</button>
       </form>
 
-    <form action="/retroceder/" method="post" name="form_retroceder">
+    <form method="post" id="form_retroceder" onsubmit="return retroceder();">
       <button id="btn-retroceder">
         Retroceder
       </button>
     </form>
 
   </aside>
-
   <footer class="footer">Footer</footer>
 </body>
 </html>

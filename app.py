@@ -42,7 +42,6 @@ def led():
 
 @server.route("/avanzar/", methods=['POST'])
 def avanzar():
-    print("Moviendo primera funcion")
     miRobot.Avanzar()
     return render_template('index.html')
 
@@ -66,7 +65,6 @@ def izquierda():
 
 @server.route("/stop/", methods=['POST']) # STOP
 def stop():
-    print("Stop")
     miRobot.Stop()
     return render_template('index.html')
 

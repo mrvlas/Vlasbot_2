@@ -1,0 +1,72 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>:: VlasBot ::</title>
+  <link rel="stylesheet" href="{{url_for('static',filename='css/main.css')}}">
+  <script src="{{url_for('static', filename = 'js/joystick.js')}}"></script> 
+</head>
+<body class="grid-container">
+  <header class="header" id="header">:: GUI RobotLAB ::</header>
+  
+  <nav class="navbar">
+
+    <div class="ui-widget">
+      <h1 class="ui-value">15</h1>
+      <span class="ui-label">Ultrasonico</span>
+    </div>
+
+    <div class="ui-widget">
+      <h1 class="ui-value">24</h1>
+      <span class="ui-label">Temperatura</span>
+    </div>
+
+  </nav>
+
+  <article class="camara">cámara
+    <img  class="camera-bg" style="width:80%; height:80%;" src="{{ url_for('video_feed') }}"> 
+    <form action="/led/" method="post" name="form_led">
+      <button id="btn-led">
+        Encender LED 
+      </button>
+    </form>
+  </article>
+  <aside class="control-direccion">Control Dirección    
+
+    <form action="/avanzar/" method="post" name="form_avanzar">
+      <button id="btn-avanzar">
+        Avanzar
+      </button>
+    </form>
+
+    <form action="/stop/" method="post" name="form_stop">
+      <button id="btn-stop">
+        STOP
+      </button>
+    </form>
+    
+    <form action="/derecha/" method="post" name="form_derecha">
+      <button id="btn-derecha">
+        Derecha
+      </button>
+      </form>
+
+      <form action="/izquierda/" method="post" name="form_izquierda">
+        <button id="btn-izquierda">
+          Izquierda
+        </button>
+      </form>
+
+    <form action="/retroceder/" method="post" name="form_retroceder">
+      <button id="btn-retroceder">
+        Retroceder
+      </button>
+    </form>
+
+  </aside>
+
+  <footer class="footer">Footer</footer>
+</body>
+</html>
